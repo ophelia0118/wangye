@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+        }
+        .logo {
+            margin-bottom: 30px;
+        }
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+        .search-box {
+            width: 100%;
+            max-width: 580px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            height: 44px;
+            padding: 0 20px;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            font-size: 16px;
+            outline: none;
+            text-align: center;
+        }
+        .search-input:hover, .search-input:focus {
+            box-shadow: 0 1px 6px rgba(32,33,36,.28);
+            border-color: rgba(223,225,229,0);
+        }
+        .search-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .search-button {
+            background-color: #f8f9fa;
+            border: 1px solid #f8f9fa;
+            border-radius: 4px;
+            color: #3c4043;
+            font-size: 14px;
+            padding: 0 16px;
+            height: 36px;
+            cursor: pointer;
+            min-width: 120px;
+        }
+        .search-button:hover {
+            box-shadow: 0 1px 1px rgba(0,0,0,.1);
+            background-color: #f8f9fa;
+            border: 1px solid #dadce0;
+            color: #202124;
+        }
+    </style>
+    <script>
+        const emojis = ["😀", "😎", "🌟", "💫", "✨", "🎈", "🎨", "🎭", "🎪", "🎯", "🎲", "🎮", "🌈", "🦄", "🐼", "🐱", "🌸", "🍀"];
+        
+        function createEmoji(x, y) {
+            const emoji = document.createElement('div');
+            emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.className = 'floating-emoji';
+            emoji.style.cssText = `
+                position: fixed;
+                left: ${x}px;
+                top: ${y}px;
+                font-size: 20px;
+                pointer-events: none;
+                animation: floatUp 1s ease-out forwards;
+                z-index: 9999;
+            `;
+            document.body.appendChild(emoji);
+            
+            setTimeout(() => {
+                document.body.removeChild(emoji);
+            }, 1000);
+        }
+
+        let lastEmojiTime = 0;
+        document.addEventListener('mousemove', (e) => {
+            const currentTime = Date.now();
+            if (currentTime - lastEmojiTime > 100) { // 限制生成频率
+                createEmoji(e.clientX, e.clientY);
+                lastEmojiTime = currentTime;
+            }
+        });
+    </script>
+    <style>
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+        .floating-emoji {
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google">
+        </div>
+        <form action="https://www.google.com/search" method="GET">
+            <div class="search-box">
+                <input type="text" name="q" class="search-input" autocomplete="off">
+            </div>
+            <div class="search-buttons">
+                <button type="submit" class="search-button">Google 搜索</button>
+                <button type="button" class="search-button" onclick="window.location.href='https://www.google.com/doodles'">手气不错</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

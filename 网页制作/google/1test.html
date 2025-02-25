@@ -1,0 +1,62 @@
+{\rtf1\ansi\ansicpg936\cocoartf2818
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html>\
+<head>\
+    <meta charset="UTF-8">\
+    <title>\uc0\u40736 \u26631 \u29305 \u25928 \u27979 \u35797 </title>\
+    <style>\
+        .emoji \{\
+            position: fixed;\
+            pointer-events: none;\
+            font-size: 20px;\
+            transition: all 0.1s ease;\
+            transform: translate(-50%, -50%);\
+            user-select: none;\
+            animation: fadeOut 1s forwards;\
+        \}\
+\
+        @keyframes fadeOut \{\
+            0% \{\
+                opacity: 1;\
+                transform: translate(-50%, -50%) scale(1);\
+            \}\
+            100% \{\
+                opacity: 0;\
+                transform: translate(-50%, -50%) scale(1.5);\
+            \}\
+        \}\
+    </style>\
+</head>\
+<body>\
+    <h1>\uc0\u31227 \u21160 \u40736 \u26631 \u35797 \u35797 \u30475 \u65281 </h1>\
+    \
+    <script>\
+        const emojis = ['\uc0\u55356 \u57119 ', '\u10024 ', '\u55357 \u56491 ', '\u11088 ', '\u55356 \u57096 ', '\u55356 \u57256 ', '\u55356 \u57263 ', '\u55356 \u57258 ', '\u55356 \u57261 ', '\u55356 \u57258 '];\
+        let lastCreatedTime = 0;\
+\
+        document.addEventListener('mousemove', (e) => \{\
+            const currentTime = Date.now();\
+            if (currentTime - lastCreatedTime > 100) \{\
+                const emoji = document.createElement('div');\
+                emoji.className = 'emoji';\
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];\
+                emoji.style.left = e.clientX + 'px';\
+                emoji.style.top = e.clientY + 'px';\
+                \
+                document.body.appendChild(emoji);\
+                lastCreatedTime = currentTime;\
+\
+                emoji.addEventListener('animationend', () => \{\
+                    document.body.removeChild(emoji);\
+                \});\
+            \}\
+        \});\
+    </script>\
+</body>\
+</html>}
