@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧欢迎区域 -->
+        <div class="welcome-section">
+            <div class="logo">
+                <!-- 简单的SVG logo -->
+                <svg width="32" height="32" viewBox="0 0 32 32">
+                    <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4zm0 22c-5.523 0-10-4.477-10-10S10.477 6 16 6s10 4.477 10 10-4.477 10-10 10z" fill="white"/>
+                    <path d="M16 10a6 6 0 100 12 6 6 0 000-12z" fill="white"/>
+                </svg>
+            </div>
+            <div class="welcome-text">
+                <h1>欢迎回来！</h1>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="far fa-envelope"></i>
+                    </div>
+                    <input type="email" id="email" placeholder="邮箱" required>
+                </div>
+                
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <input type="password" id="password" placeholder="密码" required>
+                </div>
+                
+                <div class="forgot-password">
+                    <a href="#">忘记密码？</a>
+                </div>
+                
+                <button type="submit" class="login-btn">登录</button>
+            </form>
+            
+            <div class="signup-link">
+                <p>新用户？<a href="#">注册</a></p>
+            </div>
+        </div>
+        
+        <!-- 右侧欢迎区域 -->
+        <div class="welcome-card">
+            <div class="background-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+            </div>
+            
+            <div class="welcome-content">
+                <h1>欢迎回来！</h1>
+                <p>请输入您的个人信息<br>登录员工账户</p>
+                <button class="signup-btn">注册</button>
+            </div>
+            
+            <!-- 简单的背景圆点 -->
+            <div class="bg-circles">
+                <div class="circle circle1"></div>
+                <div class="circle circle2"></div>
+                <div class="circle circle3"></div>
+                <div class="circle circle4"></div>
+                <div class="circle circle5"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 

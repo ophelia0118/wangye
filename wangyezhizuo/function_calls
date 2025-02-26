@@ -1,0 +1,46 @@
+<invoke name="run_terminal_cmd">
+<parameter name="command">composer --version</parameter>
+<parameter name="explanation">检查是否安装了 Composer 及其版本</parameter>
+<parameter name="is_background">false</parameter>
+<parameter name="require_user_approval">true</parameter>
+</invoke>
+
+<invoke name="edit_file">
+<parameter name="target_file">composer.json</parameter>
+<parameter name="instructions">创建基本的 composer.json 文件</parameter>
+<parameter name="code_edit">{
+    "name": "your-name/timer-project",
+    "description": "一个简单的计时器项目",
+    "type": "project",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}</parameter>
+</invoke>
+
+<invoke name="run_terminal_cmd">
+<parameter name="command">mkdir -p src</parameter>
+<parameter name="explanation">创建源代码目录</parameter>
+<parameter name="is_background">false</parameter>
+<parameter name="require_user_approval">true</parameter>
+</invoke>
+
+<invoke name="run_terminal_cmd">
+<parameter name="command">composer install</parameter>
+<parameter name="explanation">安装 Composer 依赖</parameter>
+<parameter name="is_background">false</parameter>
+<parameter name="require_user_approval">true</parameter>
+</invoke>
+
+<invoke name="edit_file">
+<parameter name="target_file">.gitignore</parameter>
+<parameter name="instructions">创建 .gitignore 文件</parameter>
+<parameter name="code_edit">/vendor/
+composer.phar
+/composer.lock</parameter>
+</invoke> 
